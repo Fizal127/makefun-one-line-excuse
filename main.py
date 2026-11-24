@@ -15,6 +15,8 @@ ENTRY = (
 
 
 def main() -> None:
+    if not 1 <= len(ENTRY) <= 160 or "\n" in ENTRY:
+        raise SystemExit("entry fails gate: must be 1-160 chars, single line")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(ENTRY)
